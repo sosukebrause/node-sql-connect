@@ -8,12 +8,13 @@ const {
   editTodo,
 } = require("../config/orm");
 
+//route to see all
 router.get("/api", (req, res) => {
   seeAllTodos()
     .then((allTodos) => res.send(allTodos))
     .catch((err) => res.send(err));
 });
-
+//route to see single todo by id
 router.get("/api/find/:id", (req, res) => {
   // console.log(parseInt(req.params.id));
   // res.send("find by id");
