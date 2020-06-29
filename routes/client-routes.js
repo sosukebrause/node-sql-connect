@@ -6,10 +6,10 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/home.html"));
 });
 router.get("/edit", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/home.html"));
+  res.sendFile(path.join(__dirname, "../client/edit.html"));
 });
 router.get("/delete", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/home.html"));
+  res.sendFile(path.join(__dirname, "../client/delete.html"));
 });
 
 module.exports = router;

@@ -44,24 +44,23 @@ const renderTodos = (arr) => {
   arr.forEach((todo) => {
     console.log(todo);
 
-    let msg = todo.completed ? "✔ Finished todo" : "❌ Need to do!";
+    let msg = todo.completed ? "✔ Completed todo" : "Not compeleted ❌";
 
     $(".card-container").prepend(
-      `<div class="card mb-2" style="width: 18rem;">
+      `<div class="card mb-2" style="max-width: 24rem;">
             <div class="card-body">
-              <!-- <h5 class="card-title">Card title</h5> -->
+              <h5 class="card-title">Card title</h5> 
               <h6 class="card-subtitle mb-2 text-muted">
-                ✔ This need to be done
                 ${msg}
               </h6>
-              <p class="card-text">
-                Some quick example text data-id=${todo.text}
+              <p class="card-text mt-2">
+                ${todo.text}
               </p>
               <div class="text-center">
-                <button id="btnUpdate" data-id=${todo.id} style="width: 100px;" class="btn btn-outline-success">
+                <button data-id=${todo.id} style="width: 150px;" class="btn btn-outline-success btnUpdate">
                   Edit
                 </button>
-                <button id="btnDelete" data-id=${todo.id} style="width: 100px;" class="btn btn-outline-danger">
+                <button data-id=${todo.id} style="width: 150px;" class="btn btn-outline-danger btnDelete">
                   Delete
                 </button>
               </div>
@@ -73,11 +72,13 @@ const renderTodos = (arr) => {
   });
 };
 
-$(document).on("click", "#btnUpdate", function () {
+$(document).on("click", ".btnUpdate", function () {
   console.log($(this).attr("data-id"));
-  window.location.href = `/edit?id=${todoID}`;
+  const todoId = $(this).attr("data-id");
+  window.location.href = `/edit?id=${todoId}`;
 });
-$(document).on("click", "#btnDelete", function () {
+$(document).on("click", ".btnDelete", function () {
   console.log($(this).attr("data-id"));
-  window.location.href = `/delete?id=${todoID}`;
+  const todoId = $(this).attr("data-id");
+  window.location.href = `/delete?id=${todoId}`;
 });

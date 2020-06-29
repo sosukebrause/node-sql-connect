@@ -21,9 +21,7 @@ router.get("/api/find/:id", (req, res) => {
   // res.send(req.params.id);
   const id = parseInt(req.params.id);
   showTodo(id)
-    .then((todo) => {
-      res.json(todo);
-    })
+    .then((todo) => res.json(todo))
     .catch((err) => res.json(err));
 });
 
